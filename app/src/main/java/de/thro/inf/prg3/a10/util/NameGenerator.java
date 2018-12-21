@@ -13,11 +13,13 @@ import de.thro.inf.prg3.a10.R;
 /**
  * Random cook and waiter name generator
  * furthermore it provides a method to get a random dish name
+ *
  * @author Peter Kurfer
  */
 
 
-public class NameGenerator {
+public class NameGenerator
+{
 
     private final Random random = new Random();
     private final List<String> adjectives;
@@ -27,9 +29,11 @@ public class NameGenerator {
     /**
      * Default constructor
      * fills two the lists of names and adjectives to generate random names
+     *
      * @param ctx context - required to access string resources
      */
-    public NameGenerator(Context ctx) {
+    public NameGenerator(Context ctx)
+    {
         adjectives = new ArrayList<>();
         names = new ArrayList<>();
         dishNames = new ArrayList<>();
@@ -41,10 +45,12 @@ public class NameGenerator {
     }
 
     /**
-     * Generate a random name for a pilot
+     * Generate a random name for a cook or waiter
+     *
      * @return random name in the format '[adjective] [well known person]'
      */
-    public String generateName(){
+    public String generateName()
+    {
         String randomAdjective = adjectives.get(random.nextInt(adjectives.size() - 1));
         String randomName = names.get(random.nextInt(names.size() - 1));
         return String.format("%s %s", randomAdjective, randomName);
@@ -52,9 +58,11 @@ public class NameGenerator {
 
     /**
      * Get a name of random dish
+     *
      * @return random dish name
      */
-    public String getDishName(){
+    public String getDishName()
+    {
         return dishNames.get(random.nextInt(dishNames.size()));
     }
 }
